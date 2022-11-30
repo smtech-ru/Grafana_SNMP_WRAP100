@@ -3,12 +3,27 @@
 ## Prometheus Configuration
 Example config:
 ```
-  - job_name: "asterisk_exporter"
-    scrape_interval: 10s
+  - job_name: "airmax"
+    scrape_interval: 30s
+    scrape_timeout: 29s
     static_configs:
-      - targets: ["localhost:8088"]        #IP-address Asterisk Server
+      - targets: ["172.20.10.40"]  #target
         labels:
-          id: "Asterisk"
+          id: "WRAP-1"
+      - targets: ["172.20.10.45"] #target
+        labels:
+          id: "WRAP-2"
+
+    metrics_path: /snmp
+    params:
+      module: [ubiquiti_airmax]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
 ```
 
 ## View Metrics
