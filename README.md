@@ -1,30 +1,4 @@
-# Grafana asterisk dashboard
-## Asterisk Configuration
-To collect metrics, you need to enable the embedded prometheus_exporter for asterisk.
-
-
-Сreate configuration files on asterisk server `prometheus.conf` и `http.conf`
-
-Example config `prometheus.conf`
-```
-[general]
-enabled = yes
-core_metrics_enabled = yes
-uri = metrics
-```
-
-Example config `http.conf`
-```
-[general]
-enabled=yes
-enablestatic=yes
-bindaddr=0.0.0.0
-bindport=8088
-prefix=
-sessionlimit=100
-session_inactivity=30000
-session_keep_alive=15000
-```
+# Grafana WRAP100 dashboard
 
 ## Prometheus Configuration
 Example config:
@@ -38,9 +12,9 @@ Example config:
 ```
 
 ## View Metrics
-You can view the resulting metrics using the following command: 
+You can view the resulting metrics using the following command (example): 
 
-`curl http://localhost:8088/metrics`
+`curl http://172.20.10.12:9115/snmp?module=ubiquiti_airmax&target=172.20.10.40`
 
 ## Metrics
 * asterisk_channels_count
@@ -59,22 +33,29 @@ You can view the resulting metrics using the following command:
 * asterisk_core_scrape_time_ms
 
 ## General rows
-General information about the WRAP100
+General information for WRAP100
 
 ![image alt](/images/General.png)
 
 ## States rows
-Information about the status of channels state, endpoint state and channels duration seconds
+States:
+* Destination states (WDS)
+* CURRENT PORT SUMMARY
+* Destination states (users)
 
 ![image alt](/images/States.png)
 
 ## TTX rows
-Graph
+TTX for WRAP100:
+* TX power
+* signal strenght
+* RSSI signal
+* Noise floor
 
 ![image alt](/images/TTX.png)
 
 ## Trafic rows
-General information about the asterisk server
+Trafic information
 
 ![image alt](/images/Trafic.png)
 
