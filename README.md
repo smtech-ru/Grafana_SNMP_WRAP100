@@ -59,7 +59,7 @@ You can view the resulting metrics using the following command:
 * asterisk_core_scrape_time_ms
 
 ## General rows
-General information about the asterisk server
+General information about the WRAP100
 
 ![image alt](/images/General.png)
 
