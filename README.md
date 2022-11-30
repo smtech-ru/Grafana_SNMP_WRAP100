@@ -61,16 +61,21 @@ You can view the resulting metrics using the following command:
 ## General rows
 General information about the asterisk server
 
-![image alt](/images/general_rows.png)
+![image alt](/images/General.png)
 
 ## States rows
 Information about the status of channels state, endpoint state and channels duration seconds
 
-![image alt](/images/States_rows.png)
+![image alt](/images/States.png)
 
-## Statistics rows
+## TTX rows
 Graph
 
-![image alt](/images/Statistics_rows.png)
+![image alt](/images/TTX.png)
+
+## Trafic rows
+General information about the asterisk server
+
+![image alt](/images/Trafic.png)
 
 #### The project was completed by [SN](https://github.com/StanislavVN) working after [SPbEC-Mining Ltd](https://github.com/smtech-ru).
