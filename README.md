@@ -1,6 +1,5 @@
 # Grafana WRAP100 dashboard
 
-## SNR-private-OIDs
 Use prometheus [```snmp_exporter```](https://github.com/prometheus/snmp_exporter) to get SNR metrics via snmp.
 
 This dashboard represents the main metrics provided by a series of WRAP100 devices and more metrics from the common MIB.
