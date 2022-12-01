@@ -81,4 +81,9 @@ Trafic information
 
 ![image alt](/images/Trafic.png)
 
+## Useful endpoints
+* More about snmp_exporter: https://github.com/prometheus/snmp_exporter
+* MIB browser: http://oidref.com
+* MIB WRAP100 browser: https://bestmonitoringtools.com/mibdb/mibdb_search.php?mib=UBNT-AirMAX-MIB
+
 #### The project was completed by [SN](https://github.com/StanislavVN) working after [SPbEC-Mining Ltd](https://github.com/smtech-ru).
