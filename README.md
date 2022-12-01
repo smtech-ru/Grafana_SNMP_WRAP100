@@ -38,21 +38,28 @@ You can view the resulting metrics using the following command (example):
 
 `curl http://172.20.10.12:9115/snmp?module=ubiquiti_airmax&target=172.20.10.40`
 
-## Metrics
-* asterisk_channels_count
-* asterisk_calls_sum
-* asterisk_calls_count
-* asterisk_channels_state
-* asterisk_channels_duration_seconds
-* asterisk_endpoints_count
-* asterisk_endpoints_state
-* asterisk_endpoints_channels_count
-* asterisk_bridges_count
-* asterisk_bridges_channels_count
-* asterisk_core_properties
-* asterisk_core_uptime_seconds
-* asterisk_core_last_reload_seconds
-* asterisk_core_scrape_time_ms
+## Use Metrics
+* ubntStaName
+* ubntWlStatSsid
+* ubntRadioMode
+* ubntWlStatSecurity
+* ifPhysAddress
+* ubntRadioDistance
+* ubntWlStatChanWidth
+* ubntRadioFreq
+* ubntStaCcq
+* ubntRadioTxPower
+* ubntWlStatSignal
+* ubntRadioRssi
+* ubntStaNoiseFloor
+* ubntStaLastIp
+* ifOperStatus
+* ifInOctets
+* ifOutOctets
+* ifInErrors
+* ubntWlStatRxRate
+* ubntWlStatTxRate
+* snmp_scrape_pdus_returned
 
 ## General rows
 General information for WRAP100
