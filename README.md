@@ -5,6 +5,9 @@ Use prometheus [```snmp_exporter```](https://github.com/prometheus/snmp_exporter
 
 This dashboard represents the main metrics provided by a series of WRAP100 devices and more metrics from the common MIB.
 
+## How to use
+Install [```snmp_exporter```](https://github.com/prometheus/snmp_exporter) and configure it with the [```snmp.yml```](/snmp/snmp.yml). Then install and import [```dashboard```](/WRAP100.json). 
+
 ## Prometheus Configuration
 Example config:
 ```
