@@ -1,46 +1,40 @@
-# Grafana asterisk dashboard
-## Asterisk Configuration
-To collect metrics, you need to enable the embedded prometheus_exporter for asterisk.
+# Grafana WRAP100 dashboard
 
+## SNR-private-OIDs
+Use prometheus [```snmp_exporter```](https://github.com/prometheus/snmp_exporter) to get SNR metrics via snmp.
 
-Сreate configuration files on asterisk server `prometheus.conf` и `http.conf`
-
-Example config `prometheus.conf`
-```
-[general]
-enabled = yes
-core_metrics_enabled = yes
-uri = metrics
-```
-
-Example config `http.conf`
-```
-[general]
-enabled=yes
-enablestatic=yes
-bindaddr=0.0.0.0
-bindport=8088
-prefix=
-sessionlimit=100
-session_inactivity=30000
-session_keep_alive=15000
-```
+This dashboard represents the main metrics provided by a series of WRAP100 devices and more metrics from the common MIB.
 
 ## Prometheus Configuration
 Example config:
 ```
-  - job_name: "asterisk_exporter"
-    scrape_interval: 10s
+  - job_name: "airmax"
+    scrape_interval: 30s
+    scrape_timeout: 29s
     static_configs:
-      - targets: ["localhost:8088"]        #IP-address Asterisk Server
+      - targets: ["172.20.10.40"]  #target
         labels:
-          id: "Asterisk"
+          id: "WRAP-1"
+      - targets: ["172.20.10.45"] #target
+        labels:
+          id: "WRAP-2"
+
+    metrics_path: /snmp
+    params:
+      module: [ubiquiti_airmax]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
 ```
 
 ## View Metrics
-You can view the resulting metrics using the following command: 
+You can view the resulting metrics using the following command (example): 
 
-`curl http://localhost:8088/metrics`
+`curl http://172.20.10.12:9115/snmp?module=ubiquiti_airmax&target=172.20.10.40`
 
 ## Metrics
 * asterisk_channels_count
@@ -59,18 +53,30 @@ You can view the resulting metrics using the following command:
 * asterisk_core_scrape_time_ms
 
 ## General rows
-General information about the asterisk server
+General information for WRAP100
 
-![image alt](/images/general_rows.png)
+![image alt](/images/General.png)
 
 ## States rows
-Information about the status of channels state, endpoint state and channels duration seconds
+States:
+* Destination states (WDS)
+* CURRENT PORT SUMMARY
+* Destination states (users)
 
-![image alt](/images/States_rows.png)
+![image alt](/images/States.png)
 
-## Statistics rows
-Graph
+## TTX rows
+TTX for WRAP100:
+* TX power
+* signal strenght
+* RSSI signal
+* Noise floor
 
-![image alt](/images/Statistics_rows.png)
+![image alt](/images/TTX.png)
+
+## Trafic rows
+Trafic information
+
+![image alt](/images/Trafic.png)
 
 #### The project was completed by [SN](https://github.com/StanislavVN) working after [SPbEC-Mining Ltd](https://github.com/smtech-ru).
