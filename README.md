@@ -3,7 +3,7 @@
 ## SNR-private-OIDs
 Use prometheus [```snmp_exporter```](https://github.com/prometheus/snmp_exporter) to get SNR metrics via snmp.
 
-This dashboard represents the main metrics provided by a series of SNR devices and more metrics from the common MIB, which in my opinion seemed useful.
+This dashboard represents the main metrics provided by a series of WRAP100 devices and more metrics from the common MIB.
 
 ## Prometheus Configuration
 Example config:
